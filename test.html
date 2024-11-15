@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Bar with Toggle Content</title>
+  <style>
+    /* Container styling */
+    .progress-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+      margin: 0 auto;
+      padding-top: 20px;
+      position: relative;
+    }
+
+    /* Line styling */
+    .progress-container::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #ddd;
+      z-index: -1;
+    }
+
+    /* Step styling */
+    .step {
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+      color: #bbb;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    /* Circle before each step */
+    .step::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 2px solid #d9534f;
+      border-radius: 50%;
+      background-color: white;
+      margin-bottom: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Active step styling */
+    .step.active {
+      color: #d9534f;
+    }
+
+    /* Active circle */
+    .step.active::before {
+      background-color: #d9534f;
+    }
+
+    /* Content styling */
+    .content-item {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .content-item.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="progress-container">
+    <div class="step active" data-step="research">Research</div>
+    <div class="step" data-step="ideation">Ideation</div>
+    <div class="step" data-step="design">Design</div>
+    <div class="step" data-step="revisions">Revisions</div>
+    <div class="step" data-step="development">Development</div>
+    <div class="step" data-step="finalization">Finalization</div>
+  </div>
+
+  <div class="content">
+    <div class="content-item active" id="research">Content for the Research stage. This phase involves gathering information and understanding project requirements.</div>
+    <div class="content-item" id="ideation">Content for the Ideation stage. Here, we brainstorm ideas and come up with creative solutions.</div>
+    <div class="content-item" id="design">Content for the Design stage. We create the visual and functional layout for the project.</div>
+    <div class="content-item" id="revisions">Content for the Revisions stage. This phase focuses on refining the design based on feedback.</div>
+    <div class="content-item" id="development">Content for the Development stage. We begin building the project based on the finalized design.</div>
+    <div class="content-item" id="finalization">Content for the Finalization stage. We conduct final checks and prepare the project for launch.</div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const steps = document.querySelectorAll('.progress-container .step');
+      const contents = document.querySelectorAll('.content-item');
+
+      steps.forEach(step => {
+        step.addEventListener('click', () => {
+          // Remove active class from all steps and content items
+          steps.forEach(s => s.classList.remove('active'));
+          contents.forEach(c => c.classList.remove('active'));
+
+          // Add active class to the clicked step and corresponding content
+          step.classList.add('active');
+          const contentId = step.getAttribute('data-step');
+          document.getElementById(contentId).classList.add('active');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
