@@ -1,118 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progress Bar with Toggle Content</title>
-  <style>
-    /* Container styling */
-    .progress-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 80%;
-      margin: 0 auto;
-      padding-top: 20px;
-      position: relative;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplified Process</title>
+    <!-- Fonts -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    /* Line styling */
-    .progress-container::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: #ddd;
-      z-index: -1;
-    }
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    /* Step styling */
-    .step {
-      position: relative;
-      text-align: center;
-      cursor: pointer;
-      color: #bbb;
-      font-size: 14px;
-      transition: color 0.3s ease;
-    }
-
-    /* Circle before each step */
-    .step::before {
-      content: '';
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border: 2px solid #d9534f;
-      border-radius: 50%;
-      background-color: white;
-      margin-bottom: 5px;
-      transition: background-color 0.3s ease;
-    }
-
-    /* Active step styling */
-    .step.active {
-      color: #d9534f;
-    }
-
-    /* Active circle */
-    .step.active::before {
-      background-color: #d9534f;
-    }
-
-    /* Content styling */
-    .content-item {
-      display: none;
-      margin-top: 20px;
-      font-size: 18px;
-      text-align: center;
-    }
-
-    .content-item.active {
-      display: block;
-    }
-  </style>
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+    <style>
+        /* General Body Styling */
+        #counter-row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        
+        .counter-i {
+          font-size: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        
+        }
+        
+        .counter-i i {
+          font-size: 42px;
+          color: var(--uptownwebsitered);
+        }
+        
+        .counter-sec {
+          text-align: center;
+          margin: 22px;
+        }
+        
+        .counter-sec h3 {
+          font-size: 36px;
+          font-weight: 700;
+          color: var(--uptownwebsiteheading);
+        }
+        
+        .counter-sec p {
+          font-size: 14px;
+          font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-
-  <div class="progress-container">
-    <div class="step active" data-step="research">Research</div>
-    <div class="step" data-step="ideation">Ideation</div>
-    <div class="step" data-step="design">Design</div>
-    <div class="step" data-step="revisions">Revisions</div>
-    <div class="step" data-step="development">Development</div>
-    <div class="step" data-step="finalization">Finalization</div>
-  </div>
-
-  <div class="content">
-    <div class="content-item active" id="research">Content for the Research stage. This phase involves gathering information and understanding project requirements.</div>
-    <div class="content-item" id="ideation">Content for the Ideation stage. Here, we brainstorm ideas and come up with creative solutions.</div>
-    <div class="content-item" id="design">Content for the Design stage. We create the visual and functional layout for the project.</div>
-    <div class="content-item" id="revisions">Content for the Revisions stage. This phase focuses on refining the design based on feedback.</div>
-    <div class="content-item" id="development">Content for the Development stage. We begin building the project based on the finalized design.</div>
-    <div class="content-item" id="finalization">Content for the Finalization stage. We conduct final checks and prepare the project for launch.</div>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const steps = document.querySelectorAll('.progress-container .step');
-      const contents = document.querySelectorAll('.content-item');
-
-      steps.forEach(step => {
-        step.addEventListener('click', () => {
-          // Remove active class from all steps and content items
-          steps.forEach(s => s.classList.remove('active'));
-          contents.forEach(c => c.classList.remove('active'));
-
-          // Add active class to the clicked step and corresponding content
-          step.classList.add('active');
-          const contentId = step.getAttribute('data-step');
-          document.getElementById(contentId).classList.add('active');
-        });
-      });
-    });
-  </script>
-
+  <section class="counter">
+		<div class="container">
+			<div class="row" id="counter-row">
+				<div class="col-md-3 d-flex scale">
+					<div class="counter-i">
+						<i class="fa-solid fa-users"></i>
+					</div>
+					<div class="counter-sec">
+						<h3>1000+</h3>
+						<p>Happy Clients</p>
+					</div>
+				</div>
+				<div class="col-md-3 d-flex scale">
+					<div class="counter-i">
+						<i class="fa-solid fa-check"></i>
+					</div>
+					<div class="counter-sec">
+						<h3>2000+</h3>
+						<p>Projects Completed</p>
+					</div>
+				</div>
+				<div class="col-md-3 d-flex scale">
+					<div class="counter-i">
+						<i class="fa-brands fa-android"></i>
+					</div>
+					<div class="counter-sec">
+						<h3>20+</h3>
+						<p>Android Apps</p>
+					</div>
+				</div>
+				<div class="col-md-3 d-flex scale">
+					<div class="counter-i">
+						<i class="fa-regular fa-user"></i>
+					</div>
+					<div class="counter-sec">
+						<h3>100+</h3>
+						<p>Team Members</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+    
 </body>
 </html>

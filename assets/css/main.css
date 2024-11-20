@@ -558,7 +558,7 @@ h6 {
   font-size: 16px;
   padding: 0 20px;
   margin: -7px -8px -7px 0;
-  background: var(--accent-color);
+  background: #F19407;
   color: var(--contrast-color);
   transition: 0.3s;
   border-radius: 50px;
@@ -707,7 +707,7 @@ h6 {
   right: 15px;
   bottom: -15px;
   z-index: 99999;
-  background-color: var(--accent-color);
+  background-color: #F19407;
   width: 44px;
   height: 44px;
   border-radius: 50px;
@@ -1818,7 +1818,7 @@ section,
 }
 
 .faq-2 .faq-container .faq-active h3 {
-  color: var(--accent-color);
+  color: #F19407;
 }
 
 .faq-2 .faq-container .faq-active .faq-content {
@@ -1839,8 +1839,8 @@ section,
 .contact .info-wrap {
   background-color: var(--surface-color);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-  border-top: 3px solid var(--accent-color);
-  border-bottom: 3px solid var(--accent-color);
+  border-top: 3px solid #F19407;
+  border-bottom: 3px solid #F19407;
   padding: 30px;
   height: 100%;
 }
@@ -1891,8 +1891,8 @@ section,
   background-color: var(--surface-color);
   height: 100%;
   padding: 30px;
-  border-top: 3px solid var(--accent-color);
-  border-bottom: 3px solid var(--accent-color);
+  border-top: 3px solid #F19407;
+  border-bottom: 3px solid #F19407;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -1928,7 +1928,7 @@ section,
 
 .contact .php-email-form button[type=submit] {
   color: var(--contrast-color);
-  background: var(--accent-color);
+  background:#F19407;
   border: 0;
   padding: 10px 30px;
   transition: 0.4s;
@@ -2218,3 +2218,40 @@ section,
 #call-to-action h3{
   text-align: center;
 }
+
+/*Css for counter */
+     /* General Body Styling */
+     #counter-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .counter-i {
+      font-size: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+    }
+    
+    .counter-i i {
+      font-size: 42px;
+      color: var(--uptownwebsitered);
+    }
+    
+    .counter-sec {
+      text-align: center;
+      margin: 22px;
+    }
+    
+    .counter-sec h3 {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--uptownwebsiteheading);
+    }
+    
+    .counter-sec p {
+      font-size: 14px;
+      font-weight: 500;
+    }
