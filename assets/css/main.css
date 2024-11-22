@@ -850,7 +850,7 @@ section,
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: 80vh;
+  min-height: 90vh;
   position: relative;
   padding: 120px 0 60px 0;
   display: flex;
@@ -2213,6 +2213,32 @@ section,
   .contact-options .contact-option:not(:last-child)::after {
     display: none;
   }
+  .counter #counter-row{
+    margin-left:120px;
+  }
+}
+
+@media (max-width: 990px) {
+  .tab-links{
+    text-align: center;
+    margin: auto;
+  }
+  .tab-content h2{
+    text-align: center;
+  }
+  .tab-image{
+    margin: auto;
+  }
+  
+    
+  
+}
+@media (max-width: 480px) {
+  /* Styles for small mobile screens */
+  .counter #counter-row{
+    margin-left:120px;
+  }
+
 }
 
 #call-to-action h3{
