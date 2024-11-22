@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 require '../vendor/autoload.php';
 
 // Replace with your real receiving email address
-$receiving_email_address = 'ummehabiba989@gmail.com';
+$receiving_email_address = 'a.zuberi92@gmail.com';
 
 try {
     // Initialize PHPMailer
